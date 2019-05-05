@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AddTaskScreen extends StatefulWidget {
   @override
@@ -58,6 +59,10 @@ class AddTaskScreenState extends State<AddTaskScreen> {
   void _saveForm(){
     if(_formKey.currentState.validate()){
       _formKey.currentState.save();
+      Firestore.instance.collection('todo').document().setData({
+        'title': this._subject,
+        'done': false
+      });
       Navigator.of(context).pop();
     }
   }
