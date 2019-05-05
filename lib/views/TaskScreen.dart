@@ -18,7 +18,7 @@ class TaskScreenState extends State<TaskScreen>{
           IconButton(
             icon: Icon(Icons.add), 
             onPressed: () {
-
+              Navigator.pushNamed(context, '/add');
             },
           )
         ],
